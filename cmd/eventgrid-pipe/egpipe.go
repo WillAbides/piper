@@ -44,7 +44,7 @@ type cliOptions struct {
 	FlushInterval int      `kong:"default=2000,help=${flush_interval_help}"`
 }
 
-const helpDescription = `egpipe posts events to Azure Event Grid.
+const helpDescription = `eventgrid-pipe posts events to Azure Event Grid.
 
 example:
   $ topic_endpoint='https://mytopicendpoint.westus2-1.eventgrid.azure.net'
@@ -55,7 +55,7 @@ example:
     EOF
     )"
   $ echo "$data" | \
-    egpipe "$topic_endpoint" \
+    eventgrid-pipe "$topic_endpoint" \
     -H "aeg-sas-key: $topic_key" \
     -T 'jp:"@timestamp"' \
     -t 'audit-log' \

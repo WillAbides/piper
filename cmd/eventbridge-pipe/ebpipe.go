@@ -40,7 +40,7 @@ type cliOptions struct {
 	_putter internal.EventSink
 }
 
-const helpDescription = `ebpipe posts events to AWS EventBridge.
+const helpDescription = `eventbridge-pipe posts events to AWS EventBridge.
 
 example:
   $ AWS_ACCESS_KEY='AKIA****************'
@@ -51,7 +51,7 @@ example:
     EOF
     )"
   $ echo "$data" | \
-    ebpipe -s 'test-source' -t 'jp:action' -b 'my-bus' -T 'jp:"@timestamp"' \
+    eventbridge-pipe -s 'test-source' -t 'jp:action' -b 'my-bus' -T 'jp:"@timestamp"' \
     -r 'jp:"el_name"' 
 
 Learn about JMESPath syntax at https://jmespath.org

@@ -42,7 +42,7 @@ type cliOptions struct {
 	FlushInterval int      `kong:"default=2000,help=${flush_interval_help}"`
 }
 
-const helpDescription = `splunkpipe posts events to splunk.
+const helpDescription = `splunk-pipe posts events to splunk.
 
 example:
   $ splunk_endpoint="http://localhost:8080"
@@ -53,7 +53,7 @@ example:
     EOF
     )"
   $ echo "$data" | \
-    splunkpipe "$splunk_endpoint" \
+    splunk-pipe "$splunk_endpoint" \
     -H "Authorization: Splunk $splunk_hec_token" \
     -T 'jp:"@timestamp"'
 
