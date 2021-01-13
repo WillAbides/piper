@@ -1,4 +1,4 @@
-package goprojecttmpl
+package piper
 
 import (
 	"testing"
