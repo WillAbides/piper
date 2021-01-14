@@ -1,0 +1,41 @@
+#!/bin/bash
+
+set -e
+
+CDPATH="" cd -- "$(dirname -- "$(dirname -- "$0")")"
+
+version="$1"
+
+if [ -z "$version" ]; then
+  echo version is required >&2
+  exit 1
+fi
+
+if [[ $version == v* ]]; then
+  echo version cannot start with v >&2
+  exit 1
+fi
+
+tag="v$version"
+
+mkdir -p ./tmp
+script/yq w ./bindown-templates.yml 'templates.*.vars.version' "$version" >./tmp/bindown-templates.yml
+
+release_id="$(
+  script/octo repos create-release \
+    --repo willabides/piper \
+    --tag_name "$tag" \
+    --name "$tag" \
+    --target_commitish "$(git rev-parse HEAD)" \
+    --format '{{.id | toJson}}'
+)"
+
+script/octo repos upload-release-asset \
+  --repo WillAbides/piper \
+  --release_id "$release_id" \
+  --file tmp/bindown-templates.yml \
+  --name bindown-templates.yml >/dev/null
+
+git fetch origin "$tag"
+
+script/goreleaser release --rm-dist

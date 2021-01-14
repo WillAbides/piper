@@ -4,5 +4,5 @@ set -e
 
 CDPATH="" cd -- "$(dirname -- "$(dirname -- "$0")")"
 
-script/bindown install goreleaser > /dev/null
-exec bin/goreleaser "$@"
+script/bindown install yq > /dev/null
+exec bin/yq "$@"

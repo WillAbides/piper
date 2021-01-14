@@ -1,0 +1,22 @@
+templates:
+  eventbridge-pipe:
+    url: https://github.com/WillAbides/piper/releases/download/v{{.version}}/eventbridge-pipe_{{.version}}_{{.os}}_{{.arch}}.tar.gz
+    required_vars:
+    - version
+    systems:
+    - darwin/amd64
+    - linux/amd64
+  eventgrid-pipe:
+    url: https://github.com/WillAbides/piper/releases/download/v{{.version}}/eventgrid-pipe_{{.version}}_{{.os}}_{{.arch}}.tar.gz
+    required_vars:
+    - version
+    systems:
+    - darwin/amd64
+    - linux/amd64
+  splunk-pipe:
+    url: https://github.com/WillAbides/piper/releases/download/v{{.version}}/splunk-pipe_{{.version}}_{{.os}}_{{.arch}}.tar.gz
+    required_vars:
+    - version
+    systems:
+    - darwin/amd64
+    - linux/amd64
