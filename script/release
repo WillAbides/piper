@@ -16,10 +16,14 @@ if [[ $version == v* ]]; then
   exit 1
 fi
 
-tag="v$version"
-
 mkdir -p ./tmp
-script/yq w ./bindown-templates.yml 'templates.*.vars.version' "$version" >./tmp/bindown-templates.yml
+cp ./bindown-templates.yml ./tmp/bindown-templates.yml
+
+for cmd in ./cmd/*; do
+  script/bindown --configfile ./tmp/bindown-templates.yml template update-vars "$(basename "$cmd")" --set version="$version"
+done
+
+tag="v$version"
 
 release_id="$(
   script/octo repos create-release \
