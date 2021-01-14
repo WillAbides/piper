@@ -36,6 +36,6 @@ script/octo repos upload-release-asset \
   --file tmp/bindown-templates.yml \
   --name bindown-templates.yml >/dev/null
 
-git fetch origin "$tag"
+git pull
 
 script/goreleaser release --rm-dist
