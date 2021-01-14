@@ -1,0 +1,54 @@
+before:
+  hooks:
+    - go mod download
+builds:
+  - id: eventbridge-pipe
+    binary: eventbridge-pipe
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+      - darwin
+    goarch:
+      - amd64
+    main: ./cmd/eventbridge-pipe
+  - id: eventgrid-pipe
+    binary: eventgrid-pipe
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+      - darwin
+    goarch:
+      - amd64
+    main: ./cmd/eventgrid-pipe
+  - id: splunk-pipe
+    binary: splunk-pipe
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+      - darwin
+    goarch:
+      - amd64
+    main: ./cmd/splunk-pipe
+archives:
+  - id: splunk-pipe
+    builds: [splunk-pipe]
+    name_template: "{{ .Binary }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+  - id: eventbridge-pipe
+    builds: [eventbridge-pipe]
+    name_template: "{{ .Binary }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+  - id: eventgrid-pipe
+    builds: [eventgrid-pipe]
+    name_template: "{{ .Binary }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+checksum:
+  name_template: 'checksums.txt'
+snapshot:
+  name_template: "{{ .Tag }}-next"
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - '^docs:'
+      - '^test:'
