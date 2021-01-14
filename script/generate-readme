@@ -1,0 +1,29 @@
+#!/bin/sh
+
+set -e
+
+CDPATH="" cd -- "$(dirname -- "$(dirname -- "$0")")"
+
+cmd_readme() {
+  cmd_name="$1"
+  cat <<EOF > "./cmd/$cmd_name/README.md"
+# $cmd_name
+
+## Install
+
+\`\`\`
+go get github.com/willabides/piper/cmd/$cmd_name
+\`\`\`
+
+## Usage
+
+\`\`\`
+$("script/$cmd_name" --help)
+\`\`\`
+
+EOF
+}
+
+cmd_readme eventbridge-pipe
+cmd_readme eventgrid-pipe
+cmd_readme splunk-pipe
