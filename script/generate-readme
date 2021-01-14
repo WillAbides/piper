@@ -11,8 +11,19 @@ cmd_readme() {
 
 ### Install
 
+#### go get
+
 \`\`\`
 go get github.com/willabides/piper/cmd/$cmd_name
+\`\`\`
+
+#### bindown
+
+Add a [bindown](https://github.com/willabides/bindown) dependency:
+
+\`\`\`
+$ bindown template-source add piper https://github.com/WillAbides/piper/releases/latest/download/bindown-templates.yml
+$ bindown dependency add $cmd_name piper#$cmd_name
 \`\`\`
 
 ### Usage

@@ -12,8 +12,19 @@ piper contains three commands for piping json to Azure EventGrid, AWS EventBridg
 
 ### Install
 
+#### go get
+
 ```
 go get github.com/willabides/piper/cmd/eventbridge-pipe
+```
+
+#### bindown
+
+Add a [bindown](https://github.com/willabides/bindown) dependency:
+
+```
+$ bindown template-source add piper https://github.com/WillAbides/piper/releases/latest/download/bindown-templates.yml
+$ bindown dependency add eventbridge-pipe piper#eventbridge-pipe
 ```
 
 ### Usage
@@ -65,8 +76,19 @@ Flags:
 
 ### Install
 
+#### go get
+
 ```
 go get github.com/willabides/piper/cmd/eventgrid-pipe
+```
+
+#### bindown
+
+Add a [bindown](https://github.com/willabides/bindown) dependency:
+
+```
+$ bindown template-source add piper https://github.com/WillAbides/piper/releases/latest/download/bindown-templates.yml
+$ bindown dependency add eventgrid-pipe piper#eventgrid-pipe
 ```
 
 ### Usage
@@ -128,8 +150,19 @@ Flags:
 
 ### Install
 
+#### go get
+
 ```
 go get github.com/willabides/piper/cmd/splunk-pipe
+```
+
+#### bindown
+
+Add a [bindown](https://github.com/willabides/bindown) dependency:
+
+```
+$ bindown template-source add piper https://github.com/WillAbides/piper/releases/latest/download/bindown-templates.yml
+$ bindown dependency add splunk-pipe piper#splunk-pipe
 ```
 
 ### Usage

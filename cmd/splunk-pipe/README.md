@@ -2,8 +2,19 @@
 
 ### Install
 
+#### go get
+
 ```
 go get github.com/willabides/piper/cmd/splunk-pipe
+```
+
+#### bindown
+
+Add a [bindown](https://github.com/willabides/bindown) dependency:
+
+```
+$ bindown template-source add piper https://github.com/WillAbides/piper/releases/latest/download/bindown-templates.yml
+$ bindown dependency add splunk-pipe piper#splunk-pipe
 ```
 
 ### Usage
