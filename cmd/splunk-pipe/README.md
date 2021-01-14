@@ -1,12 +1,12 @@
-# splunk-pipe
+## splunk-pipe
 
-## Install
+### Install
 
 ```
 go get github.com/willabides/piper/cmd/splunk-pipe
 ```
 
-## Usage
+### Usage
 
 ```
 Usage: splunk-pipe <endpoint>

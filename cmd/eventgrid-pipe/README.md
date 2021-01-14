@@ -1,12 +1,12 @@
-# eventgrid-pipe
+## eventgrid-pipe
 
-## Install
+### Install
 
 ```
 go get github.com/willabides/piper/cmd/eventgrid-pipe
 ```
 
-## Usage
+### Usage
 
 ```
 Usage: eventgrid-pipe --subject=STRING --type=STRING <topic-endpoint>

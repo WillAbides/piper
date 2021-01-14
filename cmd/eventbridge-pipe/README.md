@@ -1,12 +1,12 @@
-# eventbridge-pipe
+## eventbridge-pipe
 
-## Install
+### Install
 
 ```
 go get github.com/willabides/piper/cmd/eventbridge-pipe
 ```
 
-## Usage
+### Usage
 
 ```
 Usage: eventbridge-pipe --type=STRING --source=STRING
